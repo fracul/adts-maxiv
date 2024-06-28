@@ -1,7 +1,7 @@
 import numpy as np
 import utility
 from pylab import figure, setp, text
-from pyramid import eigen_system
+import eigen_system
 import matplotlib as mpl
 import matplotlib.colors as mcolors
 
@@ -16,7 +16,7 @@ def prepCompPlot(twoMode=False):
     """
 
     azimodes = 2-twoMode
-    radmodes = 1+returnFirst
+    radmodes = 1
     
     i = eigen_system.ImpedanceModel(rfreq=11e9,rs=200e3)
     e = eigen_system.EigenSystem(s,i,30000,azimodes,radmodes,radimin=0,plane='Y',precision128=True)
