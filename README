@@ -1,0 +1,21 @@
+This is a Git repository of the source code and configuration files used to generate the theoretical predictions in the manuscript entitled:
+
+** Asymmetric influence of the amplitude-dependent tune shift on the transverse mode-coupling instability
+
+For full context, please refer to the above manuscript and references. The code is by no means packaged into a user-friendly application but users are welcome to inspect it and make use of it as they see fit. The code is designed to be used with Python 2.7 and Pylab in an IPython environment. Adaptation would be required to make use of the code in other environments. To test the functionality of the code, run the following from the command line:
+
+>python test.py
+
+If this completes successfully without raising any errors (warnings are ok), then it should produce the plots that appear in the above manuscript, showing that the necessary functionality is present.
+
+Users are welcome to go through the Doc strings in all of the files (where avaulable). Functions/classes that do not have doc strings can mostly be ignored.
+
+The most important classes are as follows:
+
+eigen_system.ImpedanceModel - Calculates the machine impedance including resistive wall and a resonant impedance. After initialisation, run the *calcImpedance* member function to obtain the impedance at frequencies provided as input.
+utility.StorageRing         - Stores the parameters of the machine. Takes a machine file (see example included in repository) as a single input.
+eigen_system.EigenSystem    - Takes the above two classes as two of its inputs, is used to calculate growth rates and shifts in the coherent frequency due to the impedance. After initialisation, run the *constructMatrix* and *solvEigen* member functions to obtain results.
+eigen_system.Scan           - Takes the above class as an input. Can be used to run scans of parameters such as current, chromaticity and bunch length. After initialisation, run the *scan* member function to obtain results.
+
+----------------------------------------------------------------------------------------------------------------
+2024/06 Francis Cullinan - francis.cullinan@maxiv.lu.se
